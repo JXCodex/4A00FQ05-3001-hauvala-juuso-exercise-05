@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 const mysql = require("mysql");
 
-const cors = require("cors");
+// const cors = require("cors");
 
 const db = [{ name: "tina" }, { name: "jack" }];
 
@@ -17,14 +17,16 @@ let config = {
 
 var connection = mysql.createConnection(config);
 
-app.use(cors());
+// app.use(cors());
+
+app.use(express.static("public"));
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
 });
 
-app.get("/locations", (req, res) => {
+app.get("/", (req, res) => {
   connection.query("SELECT * FROM locations", (error, results) => {
     if (error) {
       console.log(error);
