@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "name": "4a00fq05-3001-hauvala-juuso-exercise-05",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JXCodex/4A00FQ05-3001-hauvala-juuso-exercise-05.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JXCodex/4A00FQ05-3001-hauvala-juuso-exercise-05/issues"
+  },
+  "homepage": "https://github.com/JXCodex/4A00FQ05-3001-hauvala-juuso-exercise-05#readme",
+  "description": ""
+}
