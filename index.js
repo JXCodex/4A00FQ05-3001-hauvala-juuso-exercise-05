@@ -14,7 +14,7 @@ let config = {
 
 var connection = mysql.createConnection(config);
 app.get("/", (req, res) => {
-  connection.query("SELECT * FROM location", (error, results) => {
+  connection.query("SELECT * FROM locations", (error, results) => {
     if (error) {
       console.log(error);
     } else {
