@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 8080;
+const mysql = require("mysql");
 
 const db = [{ name: "tina" }, { name: "jack" }];
 
