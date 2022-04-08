@@ -3,10 +3,17 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 8080;
 const mysql = require("mysql");
-
-// const cors = require("cors");
+const cors = require("cors");
 
 const db = [{ name: "tina" }, { name: "jack" }];
+
+app.use(cors());
+app.use(express.static("frontend/build"));
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 let config = {
   host: "mydb.tamk.fi",
@@ -15,19 +22,10 @@ let config = {
   database: process.env.database,
 };
 
-var connection = mysql.createConnection(config);
+let pool = mysql.createPool(config);
 
-// app.use(cors());
-
-app.use(express.static("frontend/build"));
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
-
-app.get("/", (req, res) => {
-  connection.query("SELECT * FROM locations", (error, results) => {
+app.get("/locations", (req, res) => {
+  pool.query("SELECT * FROM locations", (error, results) => {
     if (error) {
       console.log(error);
     } else {
