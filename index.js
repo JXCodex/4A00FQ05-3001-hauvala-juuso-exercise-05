@@ -19,7 +19,7 @@ var connection = mysql.createConnection(config);
 
 // app.use(cors());
 
-app.use(express.static("public"));
+app.use(express.static("frontend/build"));
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
